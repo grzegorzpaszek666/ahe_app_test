@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> <html
+	xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>Test1</title>
+</head>
+
+<body>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Check empty form validation</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>assertElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Oh snap!'])[1]/following::p[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Oh
+							snap!'])[1]/following::p[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='&lt;&lt; Back to
+							examples'])[1]/following::p[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Yay!'])[1]/preceding::p[1]
+						</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/preceding::p[2]</option>
+						<option>//p</option>
+						<option>css=p</option>
+					</datalist></td>
+				<td>This form seems to be invalid :(</td>
+			</tr>
+		</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Check empty form by field color</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>assertEval</td>
+				<td>window.document.defaultView.getComputedStyle(window.document.getElementsByClassName('form-control
+					parsley-error')[0]).getPropertyValue('background-color')<datalist>
+						<option>
+							window.document.defaultView.getComputedStyle(window.document.getElementsByClassName(‘rgb(242,
+							222, 222);’)[0]).getPropertyValue(‘background-color’)</option>
+						<option>
+							window.document.defaultView.getComputedStyle(window.document.getElementsByClassName('form-control
+							parsley-error')[0]).getPropertyValue('background-color')</option>
+					</datalist></td>
+				<td>rgb(242, 222, 222)</td>
+			</tr>
+		</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Fill in Fullname and check if email error message appear</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td>Test Test</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>assertElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+					:'])[1]/following::li[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/following::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[2]/preceding::li[1]</option>
+						<option>//ul[@id='parsley-id-7']/li</option>
+						<option>//form/ul/li</option>
+						<option>css=li.parsley-required</option>
+					</datalist></td>
+				<td>This value is required.</td>
+			</tr>
+			<tr>
+				<td>assertElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Oh snap!'])[1]/following::p[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Oh
+							snap!'])[1]/following::p[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='&lt;&lt; Back to
+							examples'])[1]/following::p[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Yay!'])[1]/preceding::p[1]
+						</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/preceding::p[2]</option>
+						<option>//p</option>
+						<option>css=p</option>
+					</datalist></td>
+				<td>This form seems to be invalid :(</td>
+			</tr>
+		</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Check form with invalid mail format</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td>Grzegorz Paszek</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>name=email<datalist>
+						<option>name=email</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value should be a valid
+							email.'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[1]</option>
+						<option>//input[@name='email']</option>
+						<option>//form[@id='demo-form']/input[2]</option>
+						<option>//input[2]</option>
+						<option>css=input[name="email"]</option>
+					</datalist></td>
+				<td>test.wp.pl</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=contactMethodEmail<datalist>
+						<option>id=contactMethodEmail</option>
+						<option>name=contactMethod</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value should be a valid
+							email.'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/preceding::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[8]</option>
+						<option>//input[@id='contactMethodEmail']</option>
+						<option>//form[@id='demo-form']/p/input</option>
+						<option>//p/input</option>
+						<option>css=#contactMethodEmail</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+					minimum):'])[1]/following::p[2]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::p[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/following::p[3]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::p[1]</option>
+						<option>//form[@id='demo-form']/p[3]</option>
+						<option>//p[3]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>select</td>
+				<td>id=heard<datalist>
+						<option>id=heard</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::select[1]</option>
+						<option>//select[@id='heard']</option>
+						<option>//form[@id='demo-form']/p[3]/select</option>
+						<option>//select</option>
+						<option>css=#heard</option>
+					</datalist></td>
+				<td>label=Press</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+					*:'])[1]/following::option[2]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::option[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::option[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::option[4]</option>
+						<option>//option[@value='press']</option>
+						<option>//select[@id='heard']/option[2]</option>
+						<option>//option[2]</option>
+						<option>css=option[value="press"]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=message<datalist>
+						<option>id=message</option>
+						<option>name=message</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='message']</option>
+						<option>//form[@id='demo-form']/p[4]/textarea</option>
+						<option>//textarea</option>
+						<option>css=#message</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=message<datalist>
+						<option>id=message</option>
+						<option>name=message</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='message']</option>
+						<option>//form[@id='demo-form']/p[4]/textarea</option>
+						<option>//textarea</option>
+						<option>css=#message</option>
+					</datalist></td>
+				<td>qwertyuiopasdfghjkl;'</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>assertElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+					:'])[1]/following::li[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/following::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/preceding::li[1]</option>
+						<option>//ul[@id='parsley-id-7']/li</option>
+						<option>//form/ul/li</option>
+						<option>css=li.parsley-type</option>
+					</datalist></td>
+				<td>This value should be a valid email.</td>
+			</tr>
+		</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Fill in form properly</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>name=fullname<datalist>
+						<option>name=fullname</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Yay!'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[2]</option>
+						<option>//input[@name='fullname']</option>
+						<option>//form[@id='demo-form']/input</option>
+						<option>//input</option>
+						<option>css=input[name="fullname"]</option>
+					</datalist></td>
+				<td>Grzegorz Paszek</td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>name=email<datalist>
+						<option>name=email</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/preceding::input[3]</option>
+						<option>//input[@name='email']</option>
+						<option>//form[@id='demo-form']/input[2]</option>
+						<option>//input[2]</option>
+						<option>css=input[name="email"]</option>
+					</datalist></td>
+				<td>test@tesa.pl</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=hobby1<datalist>
+						<option>id=hobby1</option>
+						<option>name=hobbies[]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/following::input[3]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[6]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::input[6]</option>
+						<option>//input[@id='hobby1']</option>
+						<option>//form[@id='demo-form']/p[2]/input</option>
+						<option>//p[2]/input</option>
+						<option>css=#hobby1</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=hobby5<datalist>
+						<option>id=hobby5</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::input[5]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/following::input[7]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::input[2]</option>
+						<option>//input[@id='hobby5']</option>
+						<option>//form[@id='demo-form']/p[2]/input[5]</option>
+						<option>//input[5]</option>
+						<option>css=#hobby5</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=heard<datalist>
+						<option>id=heard</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::select[1]</option>
+						<option>//select[@id='heard']</option>
+						<option>//form[@id='demo-form']/p[3]/select</option>
+						<option>//select</option>
+						<option>css=#heard</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>select</td>
+				<td>id=heard<datalist>
+						<option>id=heard</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::select[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::select[1]</option>
+						<option>//select[@id='heard']</option>
+						<option>//form[@id='demo-form']/p[3]/select</option>
+						<option>//select</option>
+						<option>css=#heard</option>
+					</datalist></td>
+				<td>label=Internet</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+					*:'])[1]/following::option[3]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::option[3]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::option[3]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/preceding::option[3]</option>
+						<option>//option[@value='net']</option>
+						<option>//select[@id='heard']/option[3]</option>
+						<option>//option[3]</option>
+						<option>css=option[value="net"]</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=message<datalist>
+						<option>id=message</option>
+						<option>name=message</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='message']</option>
+						<option>//form[@id='demo-form']/p[4]/textarea</option>
+						<option>//textarea</option>
+						<option>css=#message</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=message<datalist>
+						<option>id=message</option>
+						<option>name=message</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='message']</option>
+						<option>//form[@id='demo-form']/p[4]/textarea</option>
+						<option>//textarea</option>
+						<option>css=#message</option>
+					</datalist></td>
+				<td>test message, at least 20 chars</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=contactMethodEmail<datalist>
+						<option>id=contactMethodEmail</option>
+						<option>name=contactMethod</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Preferred Contact Method
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[1]/preceding::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/preceding::input[2]</option>
+						<option>//input[@id='contactMethodEmail']</option>
+						<option>//form[@id='demo-form']/p/input</option>
+						<option>//p/input</option>
+						<option>css=#contactMethodEmail</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100 max)
+					:'])[1]/following::input[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Message (20 chars min, 100
+							max) :'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='div'])[1]/preceding::input[1]</option>
+						<option>//input[@value='validate']</option>
+						<option>//form[@id='demo-form']/input[3]</option>
+						<option>//form/input[3]</option>
+						<option>css=input.btn.btn-default</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>verifyElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Yay!'])[1]/following::p[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Yay!'])[1]/following::p[1]
+						</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Oh
+							snap!'])[1]/following::p[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Full Name *
+							:'])[1]/preceding::p[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email *
+							:'])[1]/preceding::p[1]</option>
+						<option>//div[2]/p</option>
+						<option>css=div.bs-callout.bs-callout-info &gt; p</option>
+					</datalist></td>
+				<td>Everything seems to be ok :)</td>
+			</tr>
+		</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">[FORM2] Test error if password length <5 cause problem</td> </tr> </thead>
+						<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://demo.itsolutionstuff.com/demo/demo-bootstrap-form-validation-example-with-demo-using-validatorjs-pluginexample.html<datalist>
+						<option>
+							http://demo.itsolutionstuff.com/demo/demo-bootstrap-form-validation-example-with-demo-using-validatorjs-pluginexample.html
+						</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=inputName<datalist>
+						<option>id=inputName</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Name'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Bootstrap Validation example
+							using validator.js'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/preceding::input[2]</option>
+						<option>//input[@id='inputName']</option>
+						<option>//input</option>
+						<option>css=#inputName</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=inputName<datalist>
+						<option>id=inputName</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Name'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Bootstrap Validation example
+							using validator.js'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/preceding::input[2]</option>
+						<option>//input[@id='inputName']</option>
+						<option>//input</option>
+						<option>css=#inputName</option>
+					</datalist></td>
+				<td>test</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=inputEmail<datalist>
+						<option>id=inputEmail</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Name'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/preceding::input[2]</option>
+						<option>//input[@id='inputEmail']</option>
+						<option>//div[2]/input</option>
+						<option>css=#inputEmail</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=inputEmail<datalist>
+						<option>id=inputEmail</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Name'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/preceding::input[2]</option>
+						<option>//input[@id='inputEmail']</option>
+						<option>//div[2]/input</option>
+						<option>css=#inputEmail</option>
+					</datalist></td>
+				<td>test@wp.pl</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=inputPassword<datalist>
+						<option>id=inputPassword</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Submit'])[1]/preceding::input[1]</option>
+						<option>//input[@id='inputPassword']</option>
+						<option>//div[3]/div/input</option>
+						<option>css=#inputPassword</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>id=inputPassword<datalist>
+						<option>id=inputPassword</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Email'])[1]/following::input[2]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Submit'])[1]/preceding::input[1]</option>
+						<option>//input[@id='inputPassword']</option>
+						<option>//div[3]/div/input</option>
+						<option>css=#inputPassword</option>
+					</datalist></td>
+				<td>test</td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>xpath=(.//*[normalize-space(text()) and
+					normalize-space(.)='BIO'])[1]/following::textarea[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='must enter minimum of 5
+							characters'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Submit'])[1]/preceding::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='View Post Code and
+							Tutorial'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='inputName']</option>
+						<option>//textarea</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>type</td>
+				<td>xpath=(.//*[normalize-space(text()) and
+					normalize-space(.)='BIO'])[1]/following::textarea[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='BIO'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='must enter minimum of 5
+							characters'])[1]/following::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Submit'])[1]/preceding::textarea[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='View Post Code and
+							Tutorial'])[1]/preceding::textarea[1]</option>
+						<option>//textarea[@id='inputName']</option>
+						<option>//textarea</option>
+					</datalist></td>
+				<td>test</td>
+			</tr>
+			<tr>
+				<td>assertElementPresent</td>
+				<td>xpath=(.//*[normalize-space(text()) and
+					normalize-space(.)='Password'])[1]/following::li[1]<datalist>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Password'])[1]/following::li[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::li[1]
+						</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='BIO'])[1]/preceding::li[1]
+						</option>
+						<option>xpath=(.//*[normalize-space(text()) and
+							normalize-space(.)='Submit'])[1]/preceding::li[1]</option>
+						<option>//li</option>
+						<option>css=li</option>
+					</datalist></td>
+				<td>must enter minimum of 5 characters</td>
+			</tr>
+			</tbody>
+	</table>
+	<table cellpadding="1" cellspacing="1" border="1">
+		<thead>
+			<tr>
+				<td rowspan="1" colspan="3">Untitled Test Case</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>open</td>
+				<td>http://parsleyjs.org/doc/examples/simple.html<datalist>
+						<option>http://parsleyjs.org/doc/examples/simple.html</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=hobby1<datalist>
+						<option>id=hobby1</option>
+						<option>name=hobbies[]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[3]/following::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[6]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[4]/preceding::input[6]</option>
+						<option>//input[@id='hobby1']</option>
+						<option>//form[@id='demo-form']/p[2]/input</option>
+						<option>//p[2]/input</option>
+						<option>css=#hobby1</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=hobby4<datalist>
+						<option>id=hobby4</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::input[4]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[3]/following::input[4]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[3]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[4]/preceding::input[3]</option>
+						<option>//input[@id='hobby4']</option>
+						<option>//form[@id='demo-form']/p[2]/input[4]</option>
+						<option>//input[4]</option>
+						<option>css=#hobby4</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>click</td>
+				<td>id=hobby6<datalist>
+						<option>id=hobby6</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Hobbies (Optional, but 2
+							minimum):'])[1]/following::input[6]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[3]/following::input[6]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Heard about us via
+							*:'])[1]/preceding::input[1]</option>
+						<option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='This value is
+							required.'])[4]/preceding::input[1]</option>
+						<option>//input[@id='hobby6']</option>
+						<option>//form[@id='demo-form']/p[2]/input[6]</option>
+						<option>//input[6]</option>
+						<option>css=#hobby6</option>
+					</datalist></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
